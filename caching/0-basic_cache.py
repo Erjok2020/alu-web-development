@@ -5,7 +5,9 @@
 
 
 
-class BaseCaching:
+from base_caching import BaseCaching
+
+class BaseCaching(BaseCaching):
     """ Base caching class """
     def __init__(self):
         self.cache_data = {}
@@ -30,21 +32,3 @@ class BasicCache(BaseCaching):
         if key is not None:
             return self.cache_data.get(key, None)
         return None
-
-# Example usage:
-if __name__ == "__main__":
-    # Create an instance of BasicCache
-    basic_cache = BasicCache()
-
-    # Add items to the cache
-    basic_cache.put("key1", "value1")
-    basic_cache.put("key2", "value2")
-    basic_cache.put("key3", "value3")
-
-    # Print the cache
-    basic_cache.print_cache()
-
-    # Retrieve items from the cache
-    print("Get key1:", basic_cache.get("key1"))  # Output: value1
-    print("Get key4:", basic_cache.get("key4"))  # Output: None
-    print("Get None:", basic_cache.get(None))    # Output: None
